@@ -99,7 +99,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        
+        let poke = pokemon[indexPath.row]
+        performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "PokemonDetailVC"
+        {
+            if let detailsVC = segue.destinationViewController as? PokemonDetailVC
+            {
+                if let poke = sender as? Pokemon
+                {
+                    detailsVC.pokemon = poke
+                }
+            }
+        }
     }
     
     @IBAction func musicBtnPressed(sender: UIButton)
