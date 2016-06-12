@@ -99,7 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        let poke = pokemon[indexPath.row]
+        let poke = filteredPokemon[indexPath.row]
         performSegueWithIdentifier("PokemonDetailVC", sender: poke)
     }
     
